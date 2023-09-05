@@ -25,9 +25,9 @@ const Apparition = ({ gender, eye_color, hair_color }: TApparition) => {
 
   return (
     <Apparition>
-      <Paragraph text={`Gender: ${gender}`} /> <hr />
-      <Paragraph text={`Eyes: ${eye_color}`} /> <hr />
-      <Paragraph text={`Hair: ${hair_color}`} />
+      <Paragraph>{`Gender: ${gender}`}</Paragraph> <hr />
+      <Paragraph>{`Eyes: ${eye_color}`}</Paragraph> <hr />
+      <Paragraph>{`Hair: ${hair_color}`}</Paragraph>
     </Apparition>
   )
 }
