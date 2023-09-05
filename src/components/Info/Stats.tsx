@@ -5,7 +5,7 @@ const Stats = (props: TStats) => {
   if (props.type === 'person') {
     const { height, mass, birth_year } = props.person
     return (
-      <Paragraph text={`H: ${height}cm | M: ${mass}kg | BY: ${birth_year}`} />
+      <Paragraph>{`H: ${height}cm | M: ${mass}kg | BY: ${birth_year}`}</Paragraph>
     )
   }
 }
