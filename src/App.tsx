@@ -3,6 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Fragment } from 'react'
 import People from './pages/People'
 import MainLayout from './layout/MainLayout'
+import Planets from './pages/Planets'
 
 const globalStyles = css({
   '*, *::after, *::before': {
@@ -35,6 +36,7 @@ const App = () => {
       children: [
         { path: '/', element: <Navigate replace to='/people' /> },
         { path: '/people', element: <People /> },
+        {path: '/planets', element: <Planets />}
       ],
     },
   ])
