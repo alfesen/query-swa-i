@@ -32,4 +32,4 @@ export type TPlanet = {
   created: string
   edited: string
   url: string
-}
+} & { id: number }
