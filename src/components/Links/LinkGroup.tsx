@@ -1,5 +1,4 @@
 /* eslint-disable no-case-declarations */
-import { useLocation } from 'react-router-dom'
 import Link from '../UI/Link'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
@@ -8,13 +7,15 @@ import { TLinkGroup } from '../../types/ui'
 
 const LinkGroupStyles = css({
   display: 'flex',
-  gap: '1.6rem',
-  a: { display: 'inline-block' },
+  gap: ' 0 1.6rem',
+  flexWrap: 'wrap',
+
+  a: {
+    display: 'inline-block',
+  },
 })
 
 const LinkGroup = (props: TLinkGroup) => {
-  const { search: searchParams } = useLocation()
-
   const LinkGroup = styled.div(LinkGroupStyles)
 
   switch (props.type) {
@@ -23,8 +24,8 @@ const LinkGroup = (props: TLinkGroup) => {
       return (
         <LinkGroup>
           <Paragraph>More info: </Paragraph>
-          <Link to={`${searchParams}&planet=${planetId}`} text='Home World' />
-          <Link to={`${searchParams}&species=${speciesId}`} text='Species' />
+          <Link to={`?planet=${planetId}`} text='Home World' />
+          <Link to={`?species=${speciesId}`} text='Species' />
         </LinkGroup>
       )
     case 'vehicles':
@@ -33,10 +34,7 @@ const LinkGroup = (props: TLinkGroup) => {
         <LinkGroup>
           <Paragraph>Vehicles: </Paragraph>
           {vehicles.map((vehicleId, index) => (
-            <Link
-              to={`${searchParams}&vehicle=${vehicleId}`}
-              text={`Vehicle ${index + 1}`}
-            />
+            <Link to={`?vehicle=${vehicleId}`} text={`Vehicle ${index + 1}`} />
           ))}
         </LinkGroup>
       )
@@ -47,7 +45,7 @@ const LinkGroup = (props: TLinkGroup) => {
           <Paragraph>Starships: </Paragraph>
           {starships.map((starshipId, index) => (
             <Link
-              to={`${searchParams}&starship=${starshipId}`}
+              to={`?starship=${starshipId}`}
               text={`Starship ${index + 1}`}
             />
           ))}
@@ -59,9 +57,19 @@ const LinkGroup = (props: TLinkGroup) => {
         <LinkGroup>
           <Paragraph>Films: </Paragraph>
           {films.map(filmId => (
+            <Link to={`?film=${filmId}`} text={`Film ${filmId}`} />
+          ))}
+        </LinkGroup>
+      )
+    case 'residents':
+      const { residents } = props
+      return (
+        <LinkGroup>
+          <Paragraph>Residents: </Paragraph>
+          {residents.map(residentId => (
             <Link
-              to={`${searchParams}&film=${filmId}`}
-              text={`Film ${filmId}`}
+              to={`?person=${residentId}`}
+              text={`Resident ${residentId}`}
             />
           ))}
         </LinkGroup>
