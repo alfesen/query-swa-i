@@ -1,3 +1,9 @@
+import { TUnused } from './unused'
+
+export type UnitBase = TUnused & {
+  id: number
+}
+
 export type IPerson = {
   name: string
   height: number | string
@@ -12,10 +18,7 @@ export type IPerson = {
   species: string[]
   vehicles: string[]
   starships: string[]
-  created: string
-  edited: string
-  url: string
-} & { id: number }
+}
 
 export type TPlanet = {
   name: string
@@ -29,7 +32,19 @@ export type TPlanet = {
   population: string
   residents: string[]
   films: string[]
-  created: string
-  edited: string
-  url: string
-} & { id: number }
+}
+
+export type TSpecies = UnitBase & {
+  name: string
+  classification: string
+  designation: string
+  average_height: string
+  skin_colors: string
+  hair_colors: string
+  eye_colors: string
+  average_lifespan: string
+  homeworld: string
+  language: string
+  people: string[]
+  films: string[]
+}
