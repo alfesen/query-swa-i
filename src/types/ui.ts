@@ -14,3 +14,4 @@ export type TLinkGroup =
   | { type: 'vehicles'; vehicles: string[] }
   | { type: 'starships'; starships: string[] }
   | { type: 'films'; films: string[] }
+  | { type: 'residents'; residents: string[] }
