@@ -30,10 +30,14 @@ const Apparition = ({
 
   return (
     <Apparition>
-      {gender && <StatItem name='Gender' value={gender} spaces />}
-      <StatItem name='Eyes' value={eye_color} spaces />
-      <StatItem name='Hair' value={hair_color} />
-      {skin_color && <StatItem name='Skin' value={skin_color} block />}
+      {gender && (
+        <StatItem stats={{ name: 'Gender', value: gender, spaces: true }} />
+      )}
+      <StatItem stats={{ name: 'Eyes', value: eye_color, spaces: true }} />
+      <StatItem stats={{ name: 'Hair', value: hair_color }} />
+      {skin_color && (
+        <StatItem stats={{ name: 'Skin', value: skin_color }} block />
+      )}
     </Apparition>
   )
 }
