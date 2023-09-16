@@ -3,7 +3,7 @@ import Link from '../UI/Link'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import Paragraph from '../typography/Paragraph'
-import { TLinkGroup } from '../../types/ui'
+import { TLinkGroup } from '../../types/typography'
 
 const LinkGroupStyles = css({
   display: 'flex',
@@ -70,6 +70,19 @@ const LinkGroup = (props: TLinkGroup) => {
             <Link
               to={`?person=${residentId}`}
               text={`Resident ${residentId}`}
+            />
+          ))}
+        </LinkGroup>
+      )
+    case 'people':
+      const { people } = props
+      return (
+        <LinkGroup>
+          <Paragraph>Specimens: </Paragraph>
+          {people.map(specimenId => (
+            <Link
+              to={`?specimen=${specimenId}`}
+              text={`Specimen ${specimenId}`}
             />
           ))}
         </LinkGroup>

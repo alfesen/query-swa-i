@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import Paragraph from '../typography/Paragraph'
 import { TApparition } from '../../types/typography'
+import StatItem from './StatItem'
 
 const apparitionStyles = css({
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'left',
   gap: '.3rem',
   flexWrap: 'wrap',
 
@@ -20,14 +20,24 @@ const apparitionStyles = css({
   },
 })
 
-const Apparition = ({ gender, eye_color, hair_color }: TApparition) => {
+const Apparition = ({
+  gender,
+  eye_color,
+  hair_color,
+  skin_color,
+}: TApparition) => {
   const Apparition = styled.div(apparitionStyles)
 
   return (
     <Apparition>
-      <Paragraph>{`Gender: ${gender}`}</Paragraph> <hr />
-      <Paragraph>{`Eyes: ${eye_color}`}</Paragraph> <hr />
-      <Paragraph>{`Hair: ${hair_color}`}</Paragraph>
+      {gender && (
+        <StatItem stats={{ name: 'Gender', value: gender, spaces: true }} />
+      )}
+      <StatItem stats={{ name: 'Eyes', value: eye_color, spaces: true }} />
+      <StatItem stats={{ name: 'Hair', value: hair_color }} />
+      {skin_color && (
+        <StatItem stats={{ name: 'Skin', value: skin_color }} block />
+      )}
     </Apparition>
   )
 }

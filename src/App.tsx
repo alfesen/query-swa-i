@@ -1,8 +1,9 @@
 import { Global, css } from '@emotion/react'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Fragment } from 'react'
-import People from './pages/People'
 import MainLayout from './layout/MainLayout'
+import People from './pages/People'
+import Species from './pages/Species'
 import Planets from './pages/Planets'
 
 const globalStyles = css({
@@ -36,7 +37,8 @@ const App = () => {
       children: [
         { path: '/', element: <Navigate replace to='/people' /> },
         { path: '/people', element: <People /> },
-        {path: '/planets', element: <Planets />}
+        { path: '/planets', element: <Planets /> },
+        { path: '/species', element: <Species /> },
       ],
     },
   ])

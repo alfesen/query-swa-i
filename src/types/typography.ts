@@ -1,4 +1,5 @@
-import { IPerson, TPlanet } from './units'
+import { IPerson, TPlanet, TSpecies } from './units'
+import { TUnusedKeys } from './unused'
 
 export type THeading = {
   semantic: 'h1' | 'h2' | 'h3' | 'h4'
@@ -14,10 +15,33 @@ export type TStats =
     }
   | {
       type: 'planet'
-      planet: Omit<
-        TPlanet,
-        'residents' | 'films' | 'created' | 'edited' | 'url'
-      >
+      planet: Omit<TPlanet, TUnusedKeys | 'residents' | 'films'>
+    }
+  | {
+      type: 'species'
+      species: Omit<TSpecies, TUnusedKeys | 'people'>
     }
 
-export type TApparition = Pick<IPerson, 'gender' | 'eye_color' | 'hair_color'>
+type TStatItemData = {
+  name: string
+  value: string
+  spaces?: boolean
+}
+
+export type TStatItem = {
+  stats: TStatItemData | TStatItemData[]
+  block?: boolean
+}
+
+export type TApparition = Pick<IPerson, 'eye_color' | 'hair_color'> & {
+  skin_color?: IPerson['skin_color']
+  gender?: IPerson['gender']
+}
+
+export type TLinkGroup =
+  | { type: 'personData'; planetId: string; speciesId: string }
+  | { type: 'people'; people: string[] }
+  | { type: 'vehicles'; vehicles: string[] }
+  | { type: 'starships'; starships: string[] }
+  | { type: 'films'; films: string[] }
+  | { type: 'residents'; residents: string[] }
