@@ -38,6 +38,13 @@ export type TApparition = Pick<IPerson, 'eye_color' | 'hair_color'> & {
   gender?: IPerson['gender']
 }
 
+export type TLinkGroupItem = {
+  name: string
+  paramName: string
+  text: string
+  ids: string[]
+}
+
 export type TLinkGroup =
   | { type: 'personData'; planetId: string; speciesId: string }
   | { type: 'people'; people: string[] }

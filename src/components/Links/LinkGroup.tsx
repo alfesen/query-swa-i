@@ -1,22 +1,13 @@
 /* eslint-disable no-case-declarations */
 import Link from '../UI/Link'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 import Paragraph from '../typography/Paragraph'
 import { TLinkGroup } from '../../types/typography'
-
-const LinkGroupStyles = css({
-  display: 'flex',
-  gap: ' 0 1.6rem',
-  flexWrap: 'wrap',
-
-  a: {
-    display: 'inline-block',
-  },
-})
+import LinkGroupItem from './LinkGroupItem'
+import { LinkGroupItemStyles } from './LinkGroupItem'
 
 const LinkGroup = (props: TLinkGroup) => {
-  const LinkGroup = styled.div(LinkGroupStyles)
+  const LinkGroup = styled.div(LinkGroupItemStyles)
 
   switch (props.type) {
     case 'personData':
@@ -31,61 +22,47 @@ const LinkGroup = (props: TLinkGroup) => {
     case 'vehicles':
       const { vehicles } = props
       return (
-        <LinkGroup>
-          <Paragraph>Vehicles: </Paragraph>
-          {vehicles.map((vehicleId, index) => (
-            <Link to={`?vehicle=${vehicleId}`} text={`Vehicle ${index + 1}`} />
-          ))}
-        </LinkGroup>
+        <LinkGroupItem
+          ids={vehicles}
+          name='Vehicles'
+          paramName='vehicle'
+          text='Vehicle'
+        />
       )
     case 'starships':
       const { starships } = props
       return (
-        <LinkGroup>
-          <Paragraph>Starships: </Paragraph>
-          {starships.map((starshipId, index) => (
-            <Link
-              to={`?starship=${starshipId}`}
-              text={`Starship ${index + 1}`}
-            />
-          ))}
-        </LinkGroup>
+        <LinkGroupItem
+          name='Starships'
+          ids={starships}
+          paramName='starship'
+          text='Starship'
+        />
       )
     case 'films':
       const { films } = props
       return (
-        <LinkGroup>
-          <Paragraph>Films: </Paragraph>
-          {films.map(filmId => (
-            <Link to={`?film=${filmId}`} text={`Film ${filmId}`} />
-          ))}
-        </LinkGroup>
+        <LinkGroupItem name='Films' ids={films} paramName='film' text='Film' />
       )
     case 'residents':
       const { residents } = props
       return (
-        <LinkGroup>
-          <Paragraph>Residents: </Paragraph>
-          {residents.map(residentId => (
-            <Link
-              to={`?person=${residentId}`}
-              text={`Resident ${residentId}`}
-            />
-          ))}
-        </LinkGroup>
+        <LinkGroupItem
+          name='Residents'
+          ids={residents}
+          paramName='resident'
+          text='Resident'
+        />
       )
     case 'people':
       const { people } = props
       return (
-        <LinkGroup>
-          <Paragraph>Specimens: </Paragraph>
-          {people.map(specimenId => (
-            <Link
-              to={`?specimen=${specimenId}`}
-              text={`Specimen ${specimenId}`}
-            />
-          ))}
-        </LinkGroup>
+        <LinkGroupItem
+          name='Specimens'
+          ids={people}
+          paramName='specimens'
+          text='Specimens'
+        />
       )
     default:
       return
