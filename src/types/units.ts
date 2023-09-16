@@ -4,7 +4,7 @@ export type UnitBase = TUnused & {
   id: number
 }
 
-export type IPerson = {
+export type IPerson = UnitBase & {
   name: string
   height: number | string
   mass: number | string
@@ -20,7 +20,7 @@ export type IPerson = {
   starships: string[]
 }
 
-export type TPlanet = {
+export type TPlanet = UnitBase & {
   name: string
   rotation_period: string
   orbital_period: string

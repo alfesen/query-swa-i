@@ -22,7 +22,21 @@ export type TStats =
       species: Omit<TSpecies, TUnusedKeys | 'people'>
     }
 
-export type TApparition = Pick<IPerson, 'gender' | 'eye_color' | 'hair_color'>
+type TStatItemData = {
+  name: string
+  value: string
+  spaces?: boolean
+}
+
+export type TStatItem = {
+  stats: TStatItemData | TStatItemData[]
+  block?: boolean
+}
+
+export type TApparition = Pick<IPerson, 'eye_color' | 'hair_color'> & {
+  skin_color?: IPerson['skin_color']
+  gender?: IPerson['gender']
+}
 
 export type TLinkGroup =
   | { type: 'personData'; planetId: string; speciesId: string }
