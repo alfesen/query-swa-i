@@ -32,5 +32,6 @@ export const useFetch = (category: string, key: string, id?: number) => {
     refetchOnWindowFocus: false,
   })
 
-  return { getPages, getItem }
+ if (id) return getItem
+ return getPages
 }
