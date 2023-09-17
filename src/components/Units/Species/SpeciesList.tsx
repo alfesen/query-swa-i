@@ -1,9 +1,8 @@
 import { Fragment } from 'react'
 import { useFetch } from '../../../hooks/useFetch'
-import { InfiniteQueryObserverSuccessResult } from 'react-query'
 import Heading from '../../typography/Heading'
 import LoadingSpinner from '../../UI/LoadingSpinner'
-import { TSpecies } from '../../../types/units'
+import { TInfiniteQuery, TSpecies } from '../../../types/units'
 import Species from './Species'
 import List from '../../List/List'
 import usePagination from '../../../hooks/usePagination'
@@ -18,10 +17,7 @@ const SpeciesList = () => {
     fetchNextPage,
     isFetchingNextPage,
     isSuccess,
-  } = getSpecies as InfiniteQueryObserverSuccessResult<{
-    results: TSpecies[]
-    next: string | null
-  }>
+  } = getSpecies as TInfiniteQuery<TSpecies>
 
   const { nextPageHandler, previousPageHandler, page } =
     usePagination(fetchNextPage)

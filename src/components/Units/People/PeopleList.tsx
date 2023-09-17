@@ -1,8 +1,10 @@
 import { Fragment, memo } from 'react' // Import React and useState
-import { InfiniteQueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import { useFetch } from '../../../hooks/useFetch'
-import { IPerson } from '../../../types/units'
+import {
+  IPerson,
+  TInfiniteQuery,
+} from '../../../types/units'
 import Heading from '../../typography/Heading'
 import Person from './Person'
 import List from '../../List/List'
@@ -19,10 +21,7 @@ const PeopleList = memo(() => {
     fetchNextPage,
     isFetchingNextPage,
     isSuccess,
-  } = getPeople as InfiniteQueryObserverSuccessResult<{
-    results: IPerson[]
-    next: string | null
-  }>
+  } = getPeople as TInfiniteQuery<IPerson>
 
   const { nextPageHandler, previousPageHandler, page } =
     usePagination(fetchNextPage)

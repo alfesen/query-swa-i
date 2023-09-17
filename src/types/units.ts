@@ -1,3 +1,4 @@
+import { InfiniteQueryObserverSuccessResult } from 'react-query'
 import { TUnused } from './unused'
 
 export type UnitBase = TUnused & {
@@ -48,3 +49,8 @@ export type TSpecies = UnitBase & {
   people: string[]
   films: string[]
 }
+
+export type TInfiniteQuery<T> = InfiniteQueryObserverSuccessResult<{
+  results: T[]
+  next: string | null
+}>

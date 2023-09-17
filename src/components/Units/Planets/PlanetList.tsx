@@ -1,8 +1,7 @@
 import { Fragment, memo } from 'react'
-import { InfiniteQueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import { useFetch } from '../../../hooks/useFetch'
-import { TPlanet } from '../../../types/units'
+import { TInfiniteQuery, TPlanet } from '../../../types/units'
 import Heading from '../../typography/Heading'
 import Planet from './Planet'
 import List from '../../List/List'
@@ -19,10 +18,7 @@ const PlanetList = memo(() => {
     fetchNextPage,
     isFetchingNextPage,
     isSuccess,
-  } = getPlanets as InfiniteQueryObserverSuccessResult<{
-    results: TPlanet[]
-    next: string | null
-  }>
+  } = getPlanets as TInfiniteQuery<TPlanet>
 
   const { nextPageHandler, previousPageHandler, page } =
     usePagination(fetchNextPage)
