@@ -1,10 +1,7 @@
 import { Fragment, memo } from 'react' // Import React and useState
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import { useFetch } from '../../../hooks/useFetch'
-import {
-  IPerson,
-  TInfiniteQuery,
-} from '../../../types/units'
+import { IPerson, TInfiniteQuery } from '../../../types/units'
 import Heading from '../../typography/Heading'
 import Person from './Person'
 import List from '../../List/List'
@@ -34,7 +31,10 @@ const PeopleList = memo(() => {
   const renderPeople = () => {
     const currentPageData = pages[page - 1] || { results: [] }
     return currentPageData.results.map((person, index) => (
-      <Person key={person.name} personData={{ ...person, id: index + 1 }} />
+      <Person
+        key={crypto.randomUUID()}
+        personData={{ ...person, id: index + 1 }}
+      />
     ))
   }
 
