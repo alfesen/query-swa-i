@@ -1,0 +1,42 @@
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+import Paragraph from '../typography/Paragraph'
+import { TPagination } from '../../types/ui'
+
+const ButtonContainerStyles = css({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '2em',
+})
+
+const ButtonStyles = css({
+  backgroundColor: 'rgba(236, 148, 75, .4)',
+  border: 'none',
+  padding: '1em',
+  transition: 'color .3s',
+  cursor: 'pointer',
+  '&:hover': {
+    color: 'rgb(236, 148, 75)',
+  },
+})
+
+const Pagination = ({
+  toNextPage,
+  toPreviousPage,
+  value,
+  isNextPage,
+}: TPagination) => {
+  const ButtonContainer = styled.div(ButtonContainerStyles)
+  const Button = styled.button(ButtonStyles)
+
+  return (
+    <ButtonContainer>
+      {value > 1 && <Button onClick={toPreviousPage}>&larr;</Button>}
+      <Paragraph>{value}</Paragraph>
+      {isNextPage && <Button onClick={toNextPage}>&rarr;</Button>}
+    </ButtonContainer>
+  )
+}
+
+export default Pagination
