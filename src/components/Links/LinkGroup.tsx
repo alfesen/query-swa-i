@@ -61,7 +61,7 @@ const LinkGroup = (props: TLinkGroup) => {
           name='Specimens'
           ids={people}
           paramName='person'
-          text='Specimens'
+          text='Specimen'
         />
       )
     default:
