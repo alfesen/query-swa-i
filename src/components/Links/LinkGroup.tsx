@@ -60,7 +60,7 @@ const LinkGroup = (props: TLinkGroup) => {
         <LinkGroupItem
           name='Specimens'
           ids={people}
-          paramName='specimens'
+          paramName='person'
           text='Specimens'
         />
       )

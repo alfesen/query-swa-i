@@ -9,6 +9,7 @@ import { useModal } from '../hooks/useModal'
 import Modal from '../components/UI/Modal'
 import FullPersonData from '../components/Units/People/FullPersonData'
 import FullPlanetData from '../components/Units/Planets/FullPlanetData'
+import FullSpeciesData from '../components/Units/Species/FullSpeciesData'
 
 const MainLayout = () => {
   const { closeModal } = useModal()
@@ -23,6 +24,7 @@ const MainLayout = () => {
 
   const personId = Number(searchParams.get('person'))
   const planetId = Number(searchParams.get('planet'))
+  const speciesId = Number(searchParams.get('species'))
   return (
     <Fragment>
       {personId ? (
@@ -33,6 +35,11 @@ const MainLayout = () => {
       {planetId ? (
         <Modal onClose={hideModal}>
           <FullPlanetData id={planetId} />
+        </Modal>
+      ) : null}
+      {speciesId ? (
+        <Modal onClose={hideModal}>
+          <FullSpeciesData id={speciesId} />
         </Modal>
       ) : null}
       <Outlet />
