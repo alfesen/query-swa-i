@@ -5,6 +5,7 @@ import MainLayout from './layout/MainLayout'
 import People from './pages/People'
 import Species from './pages/Species'
 import Planets from './pages/Planets'
+import Vehicles from './pages/Vehicles'
 
 const globalStyles = css({
   '*, *::after, *::before': {
@@ -39,6 +40,7 @@ const App = () => {
         { path: '/people', element: <People /> },
         { path: '/planets', element: <Planets /> },
         { path: '/species', element: <Species /> },
+        { path: '/vehicles', element: <Vehicles /> },
       ],
     },
   ])

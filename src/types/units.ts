@@ -50,6 +50,22 @@ export type TSpecies = UnitBase & {
   films: string[]
 }
 
+export type TVehicle = UnitBase & {
+  name: string
+  model: string
+  manufacturer: string
+  cost_in_credits: string
+  length: string
+  max_atmosphering_speed: string
+  crew: string
+  passengers: string
+  cargo_capacity: string
+  consumables: string
+  vehicle_class: string
+  pilots: never[]
+  films: string[]
+}
+
 export type TInfiniteQuery<T> = InfiniteQueryObserverSuccessResult<{
   results: T[]
   next: string | null
