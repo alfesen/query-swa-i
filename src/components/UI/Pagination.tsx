@@ -8,6 +8,7 @@ const ButtonContainerStyles = css({
   justifyContent: 'center',
   alignItems: 'center',
   gap: '2em',
+  marginTop: '2.5em'
 })
 
 const ButtonStyles = css({
