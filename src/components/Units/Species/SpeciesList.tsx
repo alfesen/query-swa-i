@@ -31,7 +31,10 @@ const SpeciesList = () => {
   const renderSpecies = () => {
     const currentPageData = pages[page - 1] || { results: [] }
     return currentPageData.results.map((species, index) => (
-      <Species key={species.name} speciesData={{ ...species, id: index + 1 }} />
+      <Species
+        key={crypto.randomUUID()}
+        speciesData={{ ...species, id: index + 1 }}
+      />
     ))
   }
   return (

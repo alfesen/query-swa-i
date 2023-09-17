@@ -32,7 +32,10 @@ const PlanetList = memo(() => {
   const renderPeople = () => {
     const currentPageData = pages[page - 1] || { results: [] }
     return currentPageData.results.map((planet, index) => (
-      <Planet key={planet.name} planetData={{ ...planet, id: index + 1 }} />
+      <Planet
+        key={crypto.randomUUID()}
+        planetData={{ ...planet, id: index + 1 }}
+      />
     ))
   }
   return (
