@@ -21,7 +21,11 @@ const LinkGroupItem = ({ name, paramName, text, ids }: TLinkGroupItem) => {
         <Bold>{name}: </Bold>
       </Paragraph>
       {ids.map(id => (
-        <Link to={`?${paramName}=${id}`} text={`${text} ${id}`} />
+        <Link
+          key={crypto.randomUUID()}
+          to={`?${paramName}=${id}`}
+          text={`${text} ${id}`}
+        />
       ))}
     </div>
   )

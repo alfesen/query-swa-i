@@ -7,12 +7,10 @@ import { Fragment } from 'react'
 const StatItem = ({ stats, block }: TStatItem) => {
   const nbsp = <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
 
-  
-
   const render = Array.isArray(stats) ? (
     stats.map(({ name, value, spaces }) => {
       return (
-        <Fragment>
+        <Fragment key={crypto.randomUUID()}>
           <Bold>{name}: </Bold>
           {value} {spaces && nbsp}
         </Fragment>

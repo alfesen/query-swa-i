@@ -23,7 +23,10 @@ const SpeciesList = () => {
 
   const renderSpecies = () =>
     species.map((species, index) => (
-      <Species speciesData={{ ...species, id: index + 1 }} />
+      <Species
+        key={crypto.randomUUID()}
+        speciesData={{ ...species, id: index + 1 }}
+      />
     ))
 
   return (
