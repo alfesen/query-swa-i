@@ -19,16 +19,14 @@ const speciesDataStyles = css({
 const FullSpeciesData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
 
+  const  getSpeciesData  = useFetch('species', `species ${id}`, id)
+
   const {
     data: species,
     error,
     isLoading,
     isFetched,
-  } = useFetch(
-    'species',
-    `species ${id}`,
-    id
-  ) as QueryObserverSuccessResult<TSpecies>
+  } = getSpeciesData as QueryObserverSuccessResult<TSpecies>
 
   const SpeciesData = styled.article(speciesDataStyles)
 

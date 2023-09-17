@@ -19,17 +19,14 @@ const personDataStyles = css({
 
 const FullPersonData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
+  const  getPersonData  = useFetch('people', `person ${id}`, id)
 
   const {
     data: person,
     error,
     isLoading,
     isFetched,
-  } = useFetch(
-    'people',
-    `person ${id}`,
-    id
-  ) as QueryObserverSuccessResult<IPerson>
+  } = getPersonData as QueryObserverSuccessResult<IPerson>
 
   const PersonData = styled.article(personDataStyles)
 

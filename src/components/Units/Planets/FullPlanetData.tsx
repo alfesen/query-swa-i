@@ -18,17 +18,13 @@ const planetDataStyles = css({
 
 const FullPlanetData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
-
+  const { getItem } = useFetch('planets', `planet ${id}`, id) 
   const {
     data: planet,
     error,
     isLoading,
     isFetched,
-  } = useFetch(
-    'planets',
-    `planet ${id}`,
-    id
-  ) as QueryObserverSuccessResult<TPlanet>
+  } = getItem as QueryObserverSuccessResult<TPlanet>
 
   const PlanetData = styled.article(planetDataStyles)
 

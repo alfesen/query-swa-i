@@ -8,3 +8,10 @@ export type TModal = {
   children: ReactNode
   onClose: () => void
 }
+
+export type TPagination = {
+  isNextPage: boolean
+  toNextPage: () => void
+  toPreviousPage: () => void
+  value: number
+}
