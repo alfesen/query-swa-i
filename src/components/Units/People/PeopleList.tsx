@@ -10,7 +10,7 @@ import Pagination from '../../UI/Pagination'
 import usePagination from '../../../hooks/usePagination'
 
 const PeopleList = memo(() => {
-  const { getPages } = useFetch('people', 'people')
+  const getPeople = useFetch('people', 'people')
 
   const {
     data,
@@ -19,7 +19,7 @@ const PeopleList = memo(() => {
     fetchNextPage,
     isFetchingNextPage,
     isSuccess,
-  } = getPages as InfiniteQueryObserverSuccessResult<{
+  } = getPeople as InfiniteQueryObserverSuccessResult<{
     results: IPerson[]
     next: string | null
   }>
