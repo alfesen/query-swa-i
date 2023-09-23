@@ -7,6 +7,7 @@ import Species from './pages/Species'
 import Planets from './pages/Planets'
 import Vehicles from './pages/Vehicles'
 import Starships from './pages/Starships'
+import Films from './pages/Films'
 
 const globalStyles = css({
   '*, *::after, *::before': {
@@ -43,6 +44,7 @@ const App = () => {
         { path: '/species', element: <Species /> },
         { path: '/vehicles', element: <Vehicles /> },
         { path: '/starships', element: <Starships /> },
+        { path: '/films', element: <Films /> },
       ],
     },
   ])

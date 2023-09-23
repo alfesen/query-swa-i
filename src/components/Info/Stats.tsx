@@ -128,6 +128,20 @@ const Stats = (props: TStats) => {
       </Fragment>
     )
   }
+  if (type === 'film') {
+    const { director, producer, release_date } = props.film
+    return (
+      <Fragment>
+        <StatItem
+          stats={[
+            { name: 'Dir', value: director, spaces },
+            { name: 'Prod', value: producer },
+          ]}
+        />
+        <StatItem stats={{ name: 'Rel. Date', value: release_date }} />
+      </Fragment>
+    )
+  }
 }
 
 export default Stats
