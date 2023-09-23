@@ -12,6 +12,7 @@ import FullPlanetData from '../components/Units/Planets/FullPlanetData'
 import FullSpeciesData from '../components/Units/Species/FullSpeciesData'
 import FullStarshipData from '../components/Units/Starships/FullStarshipData'
 import FullVehicleData from '../components/Units/Vehicles/FullVehicleData'
+import FullFilmData from '../components/Units/Films/FullFilmData'
 
 const MainLayout = () => {
   const { closeModal } = useModal()
@@ -29,6 +30,7 @@ const MainLayout = () => {
   const speciesId = Number(searchParams.get('species'))
   const vehicleId = Number(searchParams.get('vehicle'))
   const starshipId = Number(searchParams.get('starship'))
+  const filmId = Number(searchParams.get('film'))
   
   return (
     <Fragment>
@@ -55,6 +57,11 @@ const MainLayout = () => {
       {starshipId ? (
         <Modal onClose={hideModal}>
           <FullStarshipData id={starshipId} />
+        </Modal>
+      ) : null}
+      {filmId ? (
+        <Modal onClose={hideModal}>
+          <FullFilmData id={filmId} />
         </Modal>
       ) : null}
       <Outlet />
