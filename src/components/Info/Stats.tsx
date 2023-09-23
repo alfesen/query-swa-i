@@ -5,14 +5,16 @@ import Apparition from './Apparition'
 import StatItem from './StatItem'
 
 const Stats = (props: TStats) => {
+  const spaces = true
+
   const { type } = props
   if (type === 'person') {
     const { height, mass, birth_year } = props.person
     return (
       <StatItem
         stats={[
-          { name: 'H', value: `${height}cm`, spaces: true },
-          { name: 'M', value: `${mass}kg`, spaces: true },
+          { name: 'H', value: `${height}cm`, spaces },
+          { name: 'M', value: `${mass}kg`, spaces },
           { name: 'BY', value: `${birth_year}` },
         ]}
       />
@@ -34,15 +36,15 @@ const Stats = (props: TStats) => {
         <Heading semantic='h4' text={`Terrain: ${terrain}`} />
         <StatItem
           stats={[
-            { name: 'RP', value: `${rotation_period} hours`, spaces: true },
+            { name: 'RP', value: `${rotation_period} hours`, spaces },
             { name: 'OP', value: `${orbital_period} days` },
           ]}
         />
         <StatItem stats={{ name: 'Dia', value: `${diameter}km` }} />
         <StatItem
           stats={[
-            { name: 'Climate', value: climate, spaces: true },
-            { name: 'SWL', value: surface_water, spaces: true },
+            { name: 'Climate', value: climate, spaces },
+            { name: 'SWL', value: surface_water, spaces },
             { name: 'G', value: `${gravity}` },
           ]}
         />
@@ -74,7 +76,7 @@ const Stats = (props: TStats) => {
         <Heading semantic='h4' text={`Designation: ${designation}`} />
         <StatItem
           stats={[
-            { name: 'Height', value: rendered.height, spaces: true },
+            { name: 'Height', value: rendered.height, spaces },
             { name: 'Lifespan', value: rendered.lifespan },
           ]}
         />
@@ -83,6 +85,45 @@ const Stats = (props: TStats) => {
           eye_color={eye_colors}
           skin_color={skin_colors}
           hair_color={hair_colors}
+        />
+      </Fragment>
+    )
+  }
+  if (type === 'vehicle' || type === 'starship') {
+    const {
+      manufacturer,
+      model,
+      consumables,
+      cargo_capacity,
+      cost_in_credits,
+      crew,
+      length,
+      max_atmosphering_speed,
+      passengers,
+    } = type === 'vehicle' ? props.vehicle : props.starship
+
+    return (
+      <Fragment>
+        <Heading semantic='h4' text={`Built by ${manufacturer}`} />
+        <StatItem stats={{ name: 'Price (ᖬ)', value: cost_in_credits }} />
+        <StatItem
+          stats={[
+            { name: 'Model', value: model, spaces },
+            { name: 'maxSp', value: max_atmosphering_speed },
+          ]}
+        />
+        <StatItem
+          stats={[
+            { name: 'Len', value: length, spaces },
+            { name: 'Cons', value: consumables, spaces },
+            { name: 'Cgo', value: cargo_capacity },
+          ]}
+        />
+        <StatItem
+          stats={[
+            { name: 'Crew', value: crew, spaces },
+            { name: 'Pax', value: passengers },
+          ]}
         />
       </Fragment>
     )
