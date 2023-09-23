@@ -10,6 +10,8 @@ import Modal from '../components/UI/Modal'
 import FullPersonData from '../components/Units/People/FullPersonData'
 import FullPlanetData from '../components/Units/Planets/FullPlanetData'
 import FullSpeciesData from '../components/Units/Species/FullSpeciesData'
+import FullStarshipData from '../components/Units/Starships/FullStarshipData'
+import FullVehicleData from '../components/Units/Vehicles/FullVehicleData'
 
 const MainLayout = () => {
   const { closeModal } = useModal()
@@ -25,6 +27,9 @@ const MainLayout = () => {
   const personId = Number(searchParams.get('person'))
   const planetId = Number(searchParams.get('planet'))
   const speciesId = Number(searchParams.get('species'))
+  const vehicleId = Number(searchParams.get('vehicle'))
+  const starshipId = Number(searchParams.get('starship'))
+  
   return (
     <Fragment>
       {personId ? (
@@ -40,6 +45,16 @@ const MainLayout = () => {
       {speciesId ? (
         <Modal onClose={hideModal}>
           <FullSpeciesData id={speciesId} />
+        </Modal>
+      ) : null}
+      {vehicleId ? (
+        <Modal onClose={hideModal}>
+          <FullVehicleData id={vehicleId} />
+        </Modal>
+      ) : null}
+      {starshipId ? (
+        <Modal onClose={hideModal}>
+          <FullStarshipData id={starshipId} />
         </Modal>
       ) : null}
       <Outlet />
