@@ -1,11 +1,12 @@
 import { InfiniteQueryObserverSuccessResult } from 'react-query'
 import { TUnused } from './unused'
+import { Prettify } from './helpers'
 
-export type UnitBase = TUnused & {
+export type UnitBase = Prettify<TUnused & {
   id: number
-}
+}>
 
-export type IPerson = UnitBase & {
+export type IPerson = Prettify<UnitBase & {
   name: string
   height: number | string
   mass: number | string
@@ -19,9 +20,9 @@ export type IPerson = UnitBase & {
   species: string[]
   vehicles: string[]
   starships: string[]
-}
+}>
 
-export type TPlanet = UnitBase & {
+export type TPlanet = Prettify<UnitBase & {
   name: string
   rotation_period: string
   orbital_period: string
@@ -33,9 +34,9 @@ export type TPlanet = UnitBase & {
   population: string
   residents: string[]
   films: string[]
-}
+}>
 
-export type TSpecies = UnitBase & {
+export type TSpecies = Prettify<UnitBase & {
   name: string
   classification: string
   designation: string
@@ -48,23 +49,33 @@ export type TSpecies = UnitBase & {
   language: string
   people: string[]
   films: string[]
-}
+}>
 
-export type TVehicle = UnitBase & {
+type TVehicleBase = UnitBase & {
   name: string
-  model: string
-  manufacturer: string
-  cost_in_credits: string
-  length: string
-  max_atmosphering_speed: string
-  crew: string
+  pilots: never[]
+  films: string[]
   passengers: string
   cargo_capacity: string
   consumables: string
-  vehicle_class: string
-  pilots: never[]
-  films: string[]
+  manufacturer: string
+  cost_in_credits: string
+  model: string
+  length: string
+  max_atmosphering_speed: string
+  crew: string
 }
+
+export type TVehicle = Prettify<TVehicleBase & {
+  vehicle_class: string
+}>
+
+export type TStarship = Prettify<TVehicleBase & {
+  starship_class: string
+  MGLT: string
+  hyperdrive_rating: string
+  detail?: string
+}>
 
 export type TInfiniteQuery<T> = InfiniteQueryObserverSuccessResult<{
   results: T[]

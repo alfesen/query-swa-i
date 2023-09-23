@@ -1,24 +1,24 @@
 import { useSearchParams } from 'react-router-dom'
-import { TVehicle } from '../../../types/units'
+import { TStarship } from '../../../types/units'
 import Stats from '../../Info/Stats'
 import ListItem from '../../List/ListItem'
 import Heading from '../../typography/Heading'
 
-const Vehicle = ({ vehicleData }: { vehicleData: TVehicle }) => {
+const Starship = ({ starshipData }: { starshipData: TStarship }) => {
   const [, setSearchParams] = useSearchParams()
 
-  const { name, vehicle_class, id } = vehicleData || {}
+  const { name, id } = starshipData || {}
 
   const showFullVehicleData = () => {
-    setSearchParams(`vehicle=${id}`)
+    setSearchParams(`starship=${id}`)
   }
 
   return (
     <ListItem onClick={showFullVehicleData}>
-      <Heading semantic='h2' text={`${name} - ${vehicle_class}`} />
-      <Stats type='vehicle' vehicle={vehicleData} />
+      <Heading semantic='h2' text={`${name}`} />
+      <Stats type='starship' starship={starshipData} />
     </ListItem>
   )
 }
 
-export default Vehicle
+export default Starship

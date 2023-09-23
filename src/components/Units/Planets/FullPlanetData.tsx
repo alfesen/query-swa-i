@@ -1,24 +1,18 @@
-import styled from '@emotion/styled'
 import { TPlanet } from '../../../types/units'
 import { QueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import Heading from '../../typography/Heading'
-import { css } from '@emotion/react'
 import Stats from '../../Info/Stats'
 import { useFetch } from '../../../hooks/useFetch'
 import { Fragment } from 'react'
 import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
+import FullData from '../../UI/FullData'
 
-const planetDataStyles = css({
-  position: 'relative',
-  padding: '2rem',
-  minHeight: '10rem',
-})
 
 const FullPlanetData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
-  const { getItem } = useFetch('planets', `planet ${id}`, id) 
+  const getItem = useFetch('planets', `planet ${id}`, id)
   const {
     data: planet,
     error,
@@ -26,7 +20,6 @@ const FullPlanetData = ({ id }: { id: number }) => {
     isFetched,
   } = getItem as QueryObserverSuccessResult<TPlanet>
 
-  const PlanetData = styled.article(planetDataStyles)
 
   const {
     climate,
@@ -43,7 +36,7 @@ const FullPlanetData = ({ id }: { id: number }) => {
   } = planet || {}
 
   return (
-    <PlanetData>
+    <FullData>
       {isLoading && <LoadingSpinner color='#333' />}
       {!isLoading && !error && isFetched && (
         <Fragment>
@@ -66,12 +59,12 @@ const FullPlanetData = ({ id }: { id: number }) => {
 
           <LinkGroup
             type='residents'
-            residents={separateId(residents) as string[]}
+            items={separateId(residents) as string[]}
           />
-          {<LinkGroup type='films' films={separateId(films) as string[]} />}
+          {<LinkGroup type='films' items={separateId(films) as string[]} />}
         </Fragment>
       )}
-    </PlanetData>
+    </FullData>
   )
 }
 

@@ -1,4 +1,4 @@
-import { IPerson, TPlanet, TSpecies } from './units'
+import { IPerson, TPlanet, TSpecies, TStarship, TVehicle } from './units'
 import { TUnusedKeys } from './unused'
 
 export type THeading = {
@@ -19,7 +19,15 @@ export type TStats =
     }
   | {
       type: 'species'
-      species: Omit<TSpecies, TUnusedKeys | 'people'>
+      species: Omit<TSpecies, TUnusedKeys | 'people' | 'films'>
+    }
+  | {
+      type: 'vehicle'
+      vehicle: Omit<TVehicle, TUnusedKeys | 'pilots' | 'films'>
+    }
+  | {
+      type: 'starship'
+      starship: Omit<TStarship, TUnusedKeys | 'pilots' | 'films'>
     }
 
 type TStatItemData = {
@@ -45,11 +53,24 @@ export type TLinkGroupItem = {
   ids: string[]
 }
 
-export type TLinkGroup =
+export type TLinkGTLinkGroup =
   | { type: 'personData'; planetId: string; speciesId: string }
   | { type: 'people'; people: string[] }
   | { type: 'vehicles'; vehicles: string[] }
   | { type: 'starships'; starships: string[] }
   | { type: 'films'; films: string[] }
   | { type: 'residents'; residents: string[] }
-  | { type: 'vehicles'; vehicles: string[] }
+  | { type: 'pilots'; vehicles: string[] }
+
+export type TLinkGroup =
+  | { type: 'personData'; planetId: string; speciesId: string }
+  | {
+      type:
+        | 'people'
+        | 'vehicles'
+        | 'starships'
+        | 'films'
+        | 'residents'
+        | 'pilots'
+      items: string[]
+    }

@@ -1,21 +1,14 @@
-import styled from '@emotion/styled'
 import { IPerson } from '../../../types/units'
 import { QueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import Heading from '../../typography/Heading'
-import { css } from '@emotion/react'
 import Stats from '../../Info/Stats'
 import { useFetch } from '../../../hooks/useFetch'
 import Apparition from '../../Info/Apparition'
 import { Fragment } from 'react'
 import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
-
-const personDataStyles = css({
-  position: 'relative',
-  padding: '2rem',
-  minHeight: '10rem',
-})
+import FullData from '../../UI/FullData'
 
 const FullPersonData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
@@ -27,8 +20,6 @@ const FullPersonData = ({ id }: { id: number }) => {
     isLoading,
     isFetched,
   } = getPersonData as QueryObserverSuccessResult<IPerson>
-
-  const PersonData = styled.article(personDataStyles)
 
   const {
     name,
@@ -46,7 +37,7 @@ const FullPersonData = ({ id }: { id: number }) => {
   } = person || {}
 
   return (
-    <PersonData>
+    <FullData>
       {isLoading && <LoadingSpinner color='#333' />}
       {!isLoading && !error && isFetched && (
         <Fragment>
@@ -68,19 +59,19 @@ const FullPersonData = ({ id }: { id: number }) => {
           {vehicles.length > 0 && (
             <LinkGroup
               type='vehicles'
-              vehicles={separateId(vehicles) as string[]}
+              items={separateId(vehicles) as string[]}
             />
           )}
           {starships.length > 0 && (
             <LinkGroup
               type='starships'
-              starships={separateId(starships) as string[]}
+              items={separateId(starships) as string[]}
             />
           )}
-          <LinkGroup type='films' films={separateId(films) as string[]} />
+          <LinkGroup type='films' items={separateId(films) as string[]} />
         </Fragment>
       )}
-    </PersonData>
+    </FullData>
   )
 }
 
