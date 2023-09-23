@@ -1,20 +1,14 @@
-import styled from '@emotion/styled'
 import { TSpecies } from '../../../types/units'
 import { QueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import Heading from '../../typography/Heading'
-import { css } from '@emotion/react'
 import Stats from '../../Info/Stats'
 import { useFetch } from '../../../hooks/useFetch'
 import { Fragment } from 'react'
 import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
+import FullData from '../../UI/FullData'
 
-const speciesDataStyles = css({
-  position: 'relative',
-  padding: '2rem',
-  minHeight: '10rem',
-})
 
 const FullSpeciesData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
@@ -28,12 +22,10 @@ const FullSpeciesData = ({ id }: { id: number }) => {
     isFetched,
   } = getSpeciesData as QueryObserverSuccessResult<TSpecies>
 
-  const SpeciesData = styled.article(speciesDataStyles)
-
   const { name, people, films } = species || {}
 
   return (
-    <SpeciesData>
+    <FullData>
       {isLoading && <LoadingSpinner color='#333' />}
       {!isLoading && !error && isFetched && (
         <Fragment>
@@ -44,11 +36,11 @@ const FullSpeciesData = ({ id }: { id: number }) => {
               ...species,
             }}
           />
-          <LinkGroup type='people' people={separateId(people) as string[]} />
-          <LinkGroup type='films' films={separateId(films) as string[]} />
+          <LinkGroup type='people' items={separateId(people) as string[]} />
+          <LinkGroup type='films' items={separateId(films) as string[]} />
         </Fragment>
       )}
-    </SpeciesData>
+    </FullData>
   )
 }
 
