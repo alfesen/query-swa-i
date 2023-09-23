@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios'
 import { ReactNode } from 'react'
 
 export type TSpinner = {
@@ -14,4 +15,8 @@ export type TPagination = {
   toNextPage: () => void
   toPreviousPage: () => void
   value: number
+}
+
+export type TError = {
+  error: AxiosError
 }
