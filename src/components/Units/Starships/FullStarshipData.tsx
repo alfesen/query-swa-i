@@ -10,6 +10,7 @@ import useUnitId from '../../../hooks/useUnitId'
 import FullData from '../../UI/FullData'
 import StatItem from '../../Info/StatItem'
 import { AxiosError } from 'axios'
+import ItemNotFound from '../../UI/ItemNotFound'
 
 const FullStarshipData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
@@ -25,14 +26,7 @@ const FullStarshipData = ({ id }: { id: number }) => {
   } = getStarshipData as QueryObserverSuccessResult<TStarship>
 
   if (isError) {
-    const { detail } = (error as unknown as AxiosError).response?.data as {
-      detail: string
-    }
-    return (
-      <FullData>
-        <Heading semantic='h1' text={detail} />
-      </FullData>
-    )
+    return <ItemNotFound error={error as unknown as AxiosError} />
   }
 
   const { name, films, pilots, MGLT, hyperdrive_rating, starship_class } =

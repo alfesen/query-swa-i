@@ -8,19 +8,25 @@ import { Fragment } from 'react'
 import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
 import FullData from '../../UI/FullData'
-
+import { AxiosError } from 'axios'
+import ItemNotFound from '../../UI/ItemNotFound'
 
 const FullSpeciesData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
 
-  const  getSpeciesData  = useFetch('species', `species ${id}`, id)
+  const getSpeciesData = useFetch('species', `species ${id}`, id)
 
   const {
     data: species,
     error,
     isLoading,
     isFetched,
+    isError,
   } = getSpeciesData as QueryObserverSuccessResult<TSpecies>
+
+  if (isError) {
+    return <ItemNotFound error={error as unknown as AxiosError} />
+  }
 
   const { name, people, films } = species || {}
 

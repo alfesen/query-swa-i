@@ -9,17 +9,24 @@ import { Fragment } from 'react'
 import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
 import FullData from '../../UI/FullData'
+import { AxiosError } from 'axios'
+import ItemNotFound from '../../UI/ItemNotFound'
 
 const FullPersonData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
-  const  getPersonData  = useFetch('people', `person ${id}`, id)
+  const getPersonData = useFetch('people', `person ${id}`, id)
 
   const {
     data: person,
     error,
     isLoading,
     isFetched,
+    isError,
   } = getPersonData as QueryObserverSuccessResult<IPerson>
+
+  if (isError) {
+    return <ItemNotFound error={error as unknown as AxiosError} />
+  }
 
   const {
     name,

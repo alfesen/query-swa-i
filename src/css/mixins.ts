@@ -1,10 +1,13 @@
 import { css } from '@emotion/react'
 
-export const overlayBase = css({
-  position: 'absolute',
+export const flexCenter = css({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+})
+
+export const overlayBase = css(flexCenter, {
+  position: 'absolute',
   width: '100%',
   left: '0',
   top: '0',

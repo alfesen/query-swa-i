@@ -1,7 +1,5 @@
 import { TVehicle } from '../../../types/units'
-import {
-  QueryObserverSuccessResult,
-} from 'react-query'
+import { QueryObserverSuccessResult } from 'react-query'
 import LoadingSpinner from '../../UI/LoadingSpinner'
 import Heading from '../../typography/Heading'
 import Stats from '../../Info/Stats'
@@ -11,6 +9,7 @@ import LinkGroup from '../../Links/LinkGroup'
 import useUnitId from '../../../hooks/useUnitId'
 import FullData from '../../UI/FullData'
 import { AxiosError } from 'axios'
+import ItemNotFound from '../../UI/ItemNotFound'
 
 const FullVehicleData = ({ id }: { id: number }) => {
   const { separateId } = useUnitId()
@@ -26,14 +25,7 @@ const FullVehicleData = ({ id }: { id: number }) => {
   } = getVehicleData as QueryObserverSuccessResult<TVehicle>
 
   if (isError) {
-    const { detail } = (error as unknown as AxiosError).response?.data as {
-      detail: string
-    }
-    return (
-      <FullData>
-        <Heading semantic='h1' text={detail} />
-      </FullData>
-    )
+    return <ItemNotFound error={error as unknown as AxiosError} />
   }
 
   const { name, films, pilots } = vehicle || {}
