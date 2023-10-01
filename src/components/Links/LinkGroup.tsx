@@ -1,41 +1,75 @@
-import Link from '@Components/Links/Link'
+/* eslint-disable no-case-declarations */
 import Paragraph from '@Components/typography/Paragraph'
-import LinkGroupItem from './LinkGroupItem'
-import { LinkGroupItemStyles } from './LinkGroupItem'
 import { TLinkGroup } from '@Types/typography'
 import styled from '@emotion/styled'
+import Link from './Link'
+import LinkGroupItem, { LinkGroupItemStyles } from './LinkGroupItem'
+
+const linkTypes = {
+  vehicles: {
+    name: 'Vehicles',
+    paramName: 'vehicle',
+    text: 'Vehicle',
+  },
+  films: {
+    name: 'Films',
+    paramName: 'film',
+    text: 'Film',
+  },
+  starships: {
+    name: 'Starships',
+    paramName: 'starship',
+    text: 'Starship',
+  },
+  residents: {
+    name: 'Residents',
+    paramName: 'person',
+    text: 'Resident',
+  },
+  people: {
+    name: 'Specimens',
+    paramName: 'person',
+    text: 'Specimen',
+  },
+  characters: {
+    name: 'Characters',
+    paramName: 'person',
+    text: 'Character',
+  },
+  pilots: {
+    name: 'Pilots',
+    paramName: 'person',
+    text: 'Pilot',
+  },
+  planets: {
+    name: 'Planets',
+    paramName: 'planet',
+    text: 'Planet',
+  },
+  species: {
+    name: 'Species',
+    paramName: 'species',
+    text: 'Species',
+  },
+}
 
 const LinkGroup = (props: TLinkGroup) => {
-  const LinkGroupWrapper = styled.div(LinkGroupItemStyles)
+  const LinkGroup = styled.div(LinkGroupItemStyles)
 
   if (props.type === 'personData') {
     const { planetId, speciesId } = props
     return (
-      <LinkGroupWrapper>
+      <LinkGroup>
         <Paragraph>More info: </Paragraph>
         <Link to={`?planet=${planetId}`} text='Home World' />
         <Link to={`?species=${speciesId}`} text='Species' />
-      </LinkGroupWrapper>
+      </LinkGroup>
     )
   }
 
-  const { items, type } = props
-  return (
-    <LinkGroupItem
-      name={
-        type === 'people'
-          ? 'Specimens'
-          : type.charAt(0).toUpperCase() + type.slice(1)
-      }
-      ids={items}
-      paramName={type === 'people' ? 'person' : type}
-      text={
-        type === 'people'
-          ? 'Specimen'
-          : type.charAt(0).toUpperCase() + type.slice(1)
-      }
-    />
-  )
+  const properties = linkTypes[props.type]
+
+  return <LinkGroupItem ids={props.items} {...properties} />
 }
 
 export default LinkGroup
