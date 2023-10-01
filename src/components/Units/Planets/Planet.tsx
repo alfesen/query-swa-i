@@ -1,8 +1,8 @@
-import Heading from '../../typography/Heading'
-import { TPlanet } from '../../../types/units'
-import ListItem from '../../List/ListItem'
+import Heading from '@Components/typography/Heading'
+import { TPlanet } from '@Types/units'
+import ListItem from '@Components/List/ListItem'
 import { useSearchParams } from 'react-router-dom'
-import Stats from '../../Info/Stats'
+import Stats from '@Components/Info/Stats'
 
 const Planet = ({ planetData }: { planetData: TPlanet }) => {
   const {

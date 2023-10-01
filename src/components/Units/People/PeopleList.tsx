@@ -1,12 +1,12 @@
-import { Fragment, memo } from 'react' // Import React and useState
-import LoadingSpinner from '../../UI/LoadingSpinner'
-import { useFetch } from '../../../hooks/useFetch'
-import { IPerson, TInfiniteQuery } from '../../../types/units'
-import Heading from '../../typography/Heading'
+import List from '@Components/List/List'
+import LoadingSpinner from '@Components/UI/LoadingSpinner'
+import Pagination from '@Components/UI/Pagination'
+import Heading from '@Components/typography/Heading'
+import { useFetch } from '@Hooks/useFetch'
+import usePagination from '@Hooks/usePagination'
+import { IPerson, TInfiniteQuery } from '@/types/units'
+import { Fragment, memo } from 'react';
 import Person from './Person'
-import List from '../../List/List'
-import Pagination from '../../UI/Pagination'
-import usePagination from '../../../hooks/usePagination'
 
 const PeopleList = memo(() => {
   const getPeople = useFetch('people', 'people')

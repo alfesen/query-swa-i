@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import { slideUp } from '../../css/keyframes'
+import { slideUp } from '@/css/keyframes'
 
 const listStyles = css({
   position: 'relative',

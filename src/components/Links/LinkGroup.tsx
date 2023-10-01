@@ -1,8 +1,8 @@
-import Link from '../Links/Link'
-import Paragraph from '../typography/Paragraph'
+import Link from '@Components/Links/Link'
+import Paragraph from '@Components/typography/Paragraph'
 import LinkGroupItem from './LinkGroupItem'
 import { LinkGroupItemStyles } from './LinkGroupItem'
-import { TLinkGroup } from '../../types/typography'
+import { TLinkGroup } from '@Types/typography'
 import styled from '@emotion/styled'
 
 const LinkGroup = (props: TLinkGroup) => {
@@ -18,7 +18,7 @@ const LinkGroup = (props: TLinkGroup) => {
       </LinkGroupWrapper>
     )
   }
-  
+
   const { items, type } = props
   return (
     <LinkGroupItem

@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import PlanetList from '../components/Units/Planets/PlanetList'
+import PlanetList from '@Units/Planets/PlanetList'
 
 const Planets = () => {
   return (

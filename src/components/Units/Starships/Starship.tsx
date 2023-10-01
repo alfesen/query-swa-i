@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
-import { TStarship } from '../../../types/units'
-import Stats from '../../Info/Stats'
-import ListItem from '../../List/ListItem'
-import Heading from '../../typography/Heading'
+import { TStarship } from '@Types/units'
+import Stats from '@Components/Info/Stats'
+import ListItem from '@Components/List/ListItem'
+import Heading from '@Components/typography/Heading'
 
 const Starship = ({ starshipData }: { starshipData: TStarship }) => {
   const [, setSearchParams] = useSearchParams()
