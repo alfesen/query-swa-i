@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
 import Link from './Link'
-import Bold from '../typography/Bold'
-import Paragraph from '../typography/Paragraph'
-import { TLinkGroupItem } from '../../types/typography'
+import Bold from '@Components/typography/Bold'
+import Paragraph from '@Components/typography/Paragraph'
+import { TLinkGroupItem } from '@Types/typography'
 
 export const LinkGroupItemStyles = css({
   display: 'flex',

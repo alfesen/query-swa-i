@@ -5,14 +5,14 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom'
-import { useModal } from '../hooks/useModal'
-import Modal from '../components/UI/Modal'
-import FullPersonData from '../components/Units/People/FullPersonData'
-import FullPlanetData from '../components/Units/Planets/FullPlanetData'
-import FullSpeciesData from '../components/Units/Species/FullSpeciesData'
-import FullStarshipData from '../components/Units/Starships/FullStarshipData'
-import FullVehicleData from '../components/Units/Vehicles/FullVehicleData'
-import FullFilmData from '../components/Units/Films/FullFilmData'
+import { useModal } from '@Hooks/useModal'
+import Modal from '@Components/UI/Modal'
+import FullPersonData from '@Components/Units/People/FullPersonData'
+import FullPlanetData from '@Components/Units/Planets/FullPlanetData'
+import FullSpeciesData from '@Components/Units/Species/FullSpeciesData'
+import FullStarshipData from '@Components/Units/Starships/FullStarshipData'
+import FullVehicleData from '@Components/Units/Vehicles/FullVehicleData'
+import FullFilmData from '@Components/Units/Films/FullFilmData'
 import Navigation from './Navigation/Navigation'
 
 const MainLayout = () => {

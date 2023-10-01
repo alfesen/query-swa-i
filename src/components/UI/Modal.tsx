@@ -1,9 +1,9 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { TModal } from '../../types/ui'
-import { overlayBase } from '../../css/mixins'
+import { TModal } from '@Types/ui'
+import { overlayBase } from '@/css/mixins'
 import { Fragment } from 'react'
-import { slideUp } from '../../css/keyframes'
+import { slideUp } from '@/css/keyframes'
 
 const backdropStyles = css(overlayBase, {
   backgroundColor: 'rgba(0, 0, 0, 0.6)',

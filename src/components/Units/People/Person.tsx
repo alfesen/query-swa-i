@@ -1,8 +1,8 @@
-import Heading from '../../typography/Heading'
-import { IPerson } from '../../../types/units'
-import ListItem from '../../List/ListItem'
-import Stats from '../../Info/Stats'
-import Apparition from '../../Info/Apparition'
+import Heading from '@Components/typography/Heading'
+import { IPerson } from '@Types/units'
+import ListItem from '@Components/List/ListItem'
+import Stats from '@Components/Info/Stats'
+import Apparition from '@Components/Info/Apparition'
 import { Fragment } from 'react'
 import { useSearchParams } from 'react-router-dom'
 

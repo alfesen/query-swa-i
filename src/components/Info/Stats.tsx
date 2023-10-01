@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
-import { TStats } from '../../types/typography'
-import Heading from '../typography/Heading'
+import { TStats } from '@Types/typography'
+import Heading from '@Components/typography/Heading'
 import Apparition from './Apparition'
 import StatItem from './StatItem'
 

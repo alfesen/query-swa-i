@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { THeading } from '../../types/typography'
+import { THeading } from '@Types/typography'
 import { css } from '@emotion/react'
 
 const marginBottom = '1rem'

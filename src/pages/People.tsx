@@ -1,4 +1,4 @@
-import PeopleList from '../components/Units/People/PeopleList'
+import PeopleList from '@Units/People/PeopleList'
 import { Fragment } from 'react'
 
 const People = () => {

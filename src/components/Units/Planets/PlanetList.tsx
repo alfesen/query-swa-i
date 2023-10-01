@@ -1,12 +1,12 @@
 import { Fragment, memo } from 'react'
-import LoadingSpinner from '../../UI/LoadingSpinner'
-import { useFetch } from '../../../hooks/useFetch'
-import { TInfiniteQuery, TPlanet } from '../../../types/units'
-import Heading from '../../typography/Heading'
+import LoadingSpinner from '@Components/UI/LoadingSpinner'
+import { useFetch } from '@Hooks/useFetch'
+import { TInfiniteQuery, TPlanet } from '@Types/units'
+import Heading from '@Components/typography/Heading'
 import Planet from './Planet'
-import List from '../../List/List'
-import usePagination from '../../../hooks/usePagination'
-import Pagination from '../../UI/Pagination'
+import List from '@Components/List/List'
+import usePagination from '@Hooks/usePagination'
+import Pagination from '@Components/UI/Pagination'
 
 const PlanetList = memo(() => {
   const getPlanets = useFetch('planets', 'planets')

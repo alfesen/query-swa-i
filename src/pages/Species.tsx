@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import SpeciesList from '../components/Units/Species/SpeciesList'
+import SpeciesList from '@Units/Species/SpeciesList'
 
 const Species = () => {
   return (

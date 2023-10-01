@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
-import { TSpecies } from '../../../types/units'
-import ListItem from '../../List/ListItem'
-import Heading from '../../typography/Heading'
-import Stats from '../../Info/Stats'
+import { TSpecies } from '@Types/units'
+import ListItem from '@Components/List/ListItem'
+import Heading from '@Components/typography/Heading'
+import Stats from '@Components/Info/Stats'
 
 const Species = ({ speciesData }: { speciesData: TSpecies }) => {
   const { id, name, classification } = speciesData || {}

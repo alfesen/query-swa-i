@@ -1,7 +1,7 @@
 import FullData from './FullData'
-import { flexCenter } from '../../css/mixins'
+import { flexCenter } from '@/css/mixins'
 import styled from '@emotion/styled'
-import { TError } from '../../types/ui'
+import { TError } from '@Types/ui'
 
 const ItemNotFound = ({ error }: TError) => {
   const { detail } = error?.response?.data as { detail: string }

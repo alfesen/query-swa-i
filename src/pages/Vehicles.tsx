@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import VehiclesList from '../components/Units/Vehicles/VehiclesList'
+import VehiclesList from '@Units/Vehicles/VehiclesList'
 
 const Vehicles = () => {
   return (

@@ -1,4 +1,4 @@
-import FilmList from '../components/Units/Films/FilmList'
+import FilmList from '@Units/Films/FilmList'
 import { Fragment } from 'react'
 
 const Films = () => {

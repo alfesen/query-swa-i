@@ -1,4 +1,4 @@
-import { useClientWidth } from '../../hooks/useClientWidth'
+import { useClientWidth } from '@Hooks/useClientWidth'
 import DesktopNavigation from './DesktopNavigation'
 import MobileNavigation from './MobileNavigation'
 

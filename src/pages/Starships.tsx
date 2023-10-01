@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import StarshipList from '../components/Units/Starships/StarshipList'
+import StarshipList from '@Units/Starships/StarshipList'
 
 const Starships = () => {
   return (

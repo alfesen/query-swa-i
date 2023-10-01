@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { TApparition } from '../../types/typography'
+import { TApparition } from '@Types/typography'
 import StatItem from './StatItem'
 
 const apparitionStyles = css({

@@ -1,13 +1,13 @@
 import { Global, css } from '@emotion/react'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Fragment } from 'react'
-import MainLayout from './layout/MainLayout'
-import People from './pages/People'
-import Species from './pages/Species'
-import Planets from './pages/Planets'
-import Vehicles from './pages/Vehicles'
-import Starships from './pages/Starships'
-import Films from './pages/Films'
+import MainLayout from '@Layout/MainLayout'
+import People from '@Pages/People'
+import Species from '@Pages/Species'
+import Planets from '@Pages/Planets'
+import Vehicles from '@Pages/Vehicles'
+import Starships from '@Pages/Starships'
+import Films from '@Pages/Films'
 
 const globalStyles = css({
   '*, *::after, *::before': {

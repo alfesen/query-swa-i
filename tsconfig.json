@@ -19,8 +19,18 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "jsxImportSource": "@emotion/react"
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@Types/*": ["./src/types/*"],
+      "@Components/*": ["./src/components/*"],
+      "@Layout/*": ["./src/layout/*"],
+      "@Units/*": ["./src/components/Units/*"],
+      "@Hooks/*": ["./src/hooks/*"],
+      "@Pages/*": ["./src/pages/*"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

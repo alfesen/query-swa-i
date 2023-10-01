@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import Bold from '../typography/Bold'
-import Paragraph from '../typography/Paragraph'
-import { TStatItem } from '../../types/typography'
+import Bold from '@Components/typography/Bold'
+import Paragraph from '@Components/typography/Paragraph'
+import { TStatItem } from '@Types/typography'
 import { Fragment } from 'react'
 
 const StatItem = ({ stats, block }: TStatItem) => {

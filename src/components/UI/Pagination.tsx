@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import Paragraph from '../typography/Paragraph'
-import { TPagination } from '../../types/ui'
-import { flexCenter } from '../../css/mixins'
+import Paragraph from '@Components/typography/Paragraph'
+import { TPagination } from '@Types/ui'
+import { flexCenter } from '@/css/mixins'
 
 const ButtonContainerStyles = css(flexCenter, {
   gap: '2em',

@@ -9,4 +9,15 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+      '@Types': '/src/types',
+      '@Components': '/src/components',
+      '@Layout': '/src/layout',
+      '@Units': '/src/components/Units',
+      '@Hooks': '/src/hooks',
+      '@Pages': '/src/pages',
+    },
+  },
 })

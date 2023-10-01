@@ -1,12 +1,12 @@
 import { Fragment } from 'react'
-import { useFetch } from '../../../hooks/useFetch'
-import Heading from '../../typography/Heading'
-import LoadingSpinner from '../../UI/LoadingSpinner'
-import { TInfiniteQuery, TVehicle } from '../../../types/units'
+import { useFetch } from '@Hooks/useFetch'
+import Heading from '@Components/typography/Heading'
+import LoadingSpinner from '@Components/UI/LoadingSpinner'
+import { TInfiniteQuery, TVehicle } from '@Types/units'
 import Vehicle from './Vehicle'
-import List from '../../List/List'
-import usePagination from '../../../hooks/usePagination'
-import Pagination from '../../UI/Pagination'
+import List from '@Components/List/List'
+import usePagination from '@Hooks/usePagination'
+import Pagination from '@Components/UI/Pagination'
 
 const SpeciesList = () => {
   const getSpecies = useFetch('vehicles', 'vehicles')

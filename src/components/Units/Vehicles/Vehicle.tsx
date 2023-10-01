@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
-import { TVehicle } from '../../../types/units'
-import Stats from '../../Info/Stats'
-import ListItem from '../../List/ListItem'
-import Heading from '../../typography/Heading'
+import { TVehicle } from '@Types/units'
+import Stats from '@Components/Info/Stats'
+import ListItem from '@Components/List/ListItem'
+import Heading from '@Components/typography/Heading'
 
 const Vehicle = ({ vehicleData }: { vehicleData: TVehicle }) => {
   const [, setSearchParams] = useSearchParams()

@@ -1,8 +1,8 @@
-import Heading from '../../typography/Heading'
-import { TFilm } from '../../../types/units'
-import ListItem from '../../List/ListItem'
+import Heading from '@Components/typography/Heading'
+import { TFilm } from '@Types/units'
+import ListItem from '@Components/List/ListItem'
+import Stats from '@Components/Info/Stats'
 import { useSearchParams } from 'react-router-dom'
-import Stats from '../../Info/Stats'
 
 const Film = ({ filmData }: { filmData: TFilm }) => {
   const { title, episode_id, director, producer, release_date } = filmData
