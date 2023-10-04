@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios'
-import { ReactNode } from 'react'
+import { HTMLProps, ReactNode } from 'react'
 
 export type TSpinner = {
   color: string
@@ -20,3 +20,9 @@ export type TPagination = {
 export type TError = {
   error: AxiosError
 }
+
+export type TNavLinks = {
+  setShowNav?: (showNav: false) => void
+}
+
+export type TRocketButton = HTMLProps<HTMLButtonElement> & { active: boolean }

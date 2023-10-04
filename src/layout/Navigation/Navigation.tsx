@@ -10,7 +10,7 @@ const navMode = {
 const Navigation = () => {
   const { width } = useClientWidth()
 
-  const Navigation = width > 700 ? navMode.desktop : navMode.mobile
+  const Navigation = width > 768 ? navMode.desktop : navMode.mobile
 
   return <Navigation />
 }

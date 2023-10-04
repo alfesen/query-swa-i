@@ -1,35 +1,17 @@
 import {
   NavContainer,
-  Logo,
   NavLinkContainer,
-  NavLink,
-} from './DesktopNavigationComponents'
+} from './NavigationComponents/SharedNavigationComponents'
+import NavLinks from './NavigationComponents/NavLinks'
+import NavLogo from './NavigationComponents/NavLogo'
 
 const DesktopNavigation = () => {
-  const routes = [
-    'People',
-    'Species',
-    'Planets',
-    'Vehicles',
-    'Starships',
-    'Films',
-  ]
-
-  const renderNavLinks = () =>
-    routes.map(route => {
-      return (
-        <NavLink
-          className={({ isActive }) => (isActive ? 'active' : '')}
-          to={`${route.toLowerCase()}`}>
-          {route}
-        </NavLink>
-      )
-    })
-
   return (
     <NavContainer>
-      <Logo>QuerySWAPI</Logo>
-      <NavLinkContainer>{renderNavLinks()}</NavLinkContainer>
+      <NavLogo />
+      <NavLinkContainer>
+        <NavLinks />
+      </NavLinkContainer>
     </NavContainer>
   )
 }
