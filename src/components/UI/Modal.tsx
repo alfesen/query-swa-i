@@ -6,6 +6,7 @@ import { Fragment } from 'react'
 import { slideUp } from '@/css/keyframes'
 
 const backdropStyles = css(overlayBase, {
+  position: 'fixed',
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
   height: '100vh',
   zIndex: '100',
@@ -16,10 +17,13 @@ const modalContainerStyles = css(overlayBase, {
 })
 
 const modalStyles = css({
+  position: 'fixed',
   maxWidth: '60rem',
-  width: '950%',
+  width: '95%',
   margin: '1rem',
   zIndex: '200',
+  maxHeight: '40rem',
+  overflow: 'auto',
   backgroundColor: '#fff',
   backfaceVisibility: 'hidden',
   animation: `${slideUp} .6s ease-out`,
