@@ -1,10 +1,5 @@
 import { Fragment } from 'react'
-import {
-  Outlet,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from 'react-router-dom'
+import { Outlet, useNavigate, useSearchParams } from 'react-router-dom'
 import { useModal } from '@Hooks/useModal'
 import Modal from '@Components/UI/Modal'
 import FullPersonData from '@Components/Units/People/FullPersonData'
@@ -18,11 +13,15 @@ import Navigation from './Navigation/Navigation'
 const MainLayout = () => {
   const { closeModal } = useModal()
   const navigate = useNavigate()
-  const location = useLocation()
   const [searchParams] = useSearchParams()
 
   const hideModal = () => {
     closeModal()
+    if (location.pathname.includes('search')) {
+      const loc = location.search.split('&')
+      loc.pop()
+      return navigate(loc.join('&'))
+    }
     navigate(location.pathname.split('?')[0])
   }
 
