@@ -1,5 +1,6 @@
 import { TNavLinks } from '@/types/ui'
 import { NavLink } from './SharedNavigationComponents'
+import { Fragment } from 'react'
 
 const NavLinks = ({ setShowNav }: TNavLinks) => {
   const routes = [
@@ -10,17 +11,30 @@ const NavLinks = ({ setShowNav }: TNavLinks) => {
     'Starships',
     'Films',
   ]
-  return routes.map(route => {
-    return (
+
+  return (
+    <Fragment>
+      {routes.map(route => {
+        return (
+          <NavLink
+            onClick={setShowNav ? () => setShowNav(false) : undefined}
+            key={crypto.randomUUID()}
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            to={`${route.toLowerCase()}`}>
+            {route}
+          </NavLink>
+        )
+      })}
       <NavLink
         onClick={setShowNav ? () => setShowNav(false) : undefined}
         key={crypto.randomUUID()}
-        className={({ isActive }) => (isActive ? 'active' : '')}
-        to={`${route.toLowerCase()}`}>
-        {route}
+        className={`${({ isActive }: { isActive: boolean }) =>
+          isActive ? 'active' : ''} btn`}
+        to={'search'}>
+        Search
       </NavLink>
-    )
-  })
+    </Fragment>
+  )
 }
 
 export default NavLinks
