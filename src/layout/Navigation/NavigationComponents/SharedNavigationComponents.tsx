@@ -17,6 +17,7 @@ const NavContainerStyles = css({
 const NavLinkContainerStyles = css({
   backgroundColor: 'inherit',
   display: 'flex',
+  alignItems: 'center',
   gap: '2rem',
   marginRight: '1rem',
   '@media (max-width: 768px)': {
@@ -36,6 +37,15 @@ const NavLinkStyles = css({
   textDecoration: 'none',
   '&.active': {
     textDecoration: 'underline',
+  },
+  '&.btn': {
+    padding: '.5rem 1rem',
+    border: '1px solid #fff',
+    transition: 'background-color .3s, color .2s',
+    '&.active, &:hover, &:focus': {
+      backgroundColor: '#fff',
+      color: '#333',
+    },
   },
 })
 

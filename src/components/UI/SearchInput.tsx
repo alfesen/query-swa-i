@@ -56,6 +56,7 @@ const SearchInput = () => {
         as='select'
         name='Category'
         defaultValue='--Category--'
+        value={searchParams.get('c') ?? ''}
         onChange={searchCategoryHandler}>
         <Option
           value=''
@@ -76,6 +77,7 @@ const SearchInput = () => {
       <Input
         as='input'
         onInput={searchInputHandler}
+        value={searchParams.get('s') ?? ''}
         placeholder='search term'
         disabled={inputDisabled}
       />
