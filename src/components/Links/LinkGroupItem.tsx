@@ -15,6 +15,17 @@ export const LinkGroupItemStyles = css({
 })
 
 const LinkGroupItem = ({ name, paramName, text, ids }: TLinkGroupItem) => {
+  const buildParamString = (id: string) => {
+    const searchString = location.search
+    if (searchString && location.pathname.includes('search')) {
+      return (
+        location.pathname +
+        searchString.replace(/([^&]+)$/, `${paramName}=${id}`)
+      )
+    }
+    return `?${paramName}=${id}`
+  }
+
   return (
     <div css={LinkGroupItemStyles}>
       <Paragraph>
@@ -23,7 +34,8 @@ const LinkGroupItem = ({ name, paramName, text, ids }: TLinkGroupItem) => {
       {ids.map(id => (
         <Link
           key={crypto.randomUUID()}
-          to={`?${paramName}=${id}`}
+          to={buildParamString(id)}
+          replace
           text={`${text} ${id}`}
         />
       ))}

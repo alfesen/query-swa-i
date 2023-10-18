@@ -56,13 +56,24 @@ const linkTypes = {
 const LinkGroup = (props: TLinkGroup) => {
   const LinkGroup = styled.div(LinkGroupItemStyles)
 
+  const buildParamString = (paramName: string, id: string) => {
+    const searchString = location.search
+    if (searchString && location.pathname.includes('search')) {
+      return (
+        location.pathname +
+        searchString.replace(/([^&]+)$/, `${paramName}=${id}`)
+      )
+    }
+    return `?${paramName}=${id}`
+  }
+
   if (props.type === 'personData') {
     const { planetId, speciesId } = props
     return (
       <LinkGroup>
         <Paragraph>More info: </Paragraph>
-        <Link to={`?planet=${planetId}`} text='Home World' />
-        <Link to={`?species=${speciesId}`} text='Species' />
+        <Link to={buildParamString('planet', planetId)} text='Home World' />
+        <Link to={buildParamString('species', speciesId)} text='Species' />
       </LinkGroup>
     )
   }
