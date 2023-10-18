@@ -1,10 +1,10 @@
 import Heading from '@Components/typography/Heading'
 import { TPlanet } from '@Types/units'
 import ListItem from '@Components/List/ListItem'
-import { useSearchParams } from 'react-router-dom'
 import Stats from '@Components/Info/Stats'
+import { useModal } from '@/hooks/useModal'
 
-const Planet = ({ planetData }: { planetData: TPlanet }) => {
+const Planet = ({ data }: { data: TPlanet }) => {
   const {
     id,
     name,
@@ -16,16 +16,12 @@ const Planet = ({ planetData }: { planetData: TPlanet }) => {
     population,
     surface_water,
     terrain,
-  } = planetData
+  } = data
 
-  const [, setSearchParams] = useSearchParams()
-
-  const showFullPlanetData = () => {
-    setSearchParams(`planet=${id}`)
-  }
+  const { showFullData } = useModal()
 
   return (
-    <ListItem onClick={showFullPlanetData}>
+    <ListItem onClick={() => showFullData('planet', id)}>
       <Heading semantic='h2' text={name} />
       <Stats
         type='planet'

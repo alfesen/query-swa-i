@@ -34,7 +34,7 @@ const PlanetList = memo(() => {
     return currentPageData.results.map((planet, index) => (
       <Planet
         key={crypto.randomUUID()}
-        planetData={{ ...planet, id: index + 1 }}
+        data={{ ...planet, id: index + 1 }}
       />
     ))
   }

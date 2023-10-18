@@ -33,7 +33,7 @@ const SpeciesList = () => {
     return currentPageData.results.map((species, index) => (
       <Species
         key={crypto.randomUUID()}
-        speciesData={{ ...species, id: index + 1 }}
+        data={{ ...species, id: index + 1 }}
       />
     ))
   }

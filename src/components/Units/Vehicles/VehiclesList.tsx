@@ -31,7 +31,7 @@ const SpeciesList = () => {
   const renderVehicles = () => {
     const currentPageData = pages[page - 1] || { results: [] }
     return currentPageData.results.map((vehicle, index) => (
-      <Vehicle key={crypto.randomUUID()} vehicleData={{ ...vehicle, id: index + 1 }} />
+      <Vehicle key={crypto.randomUUID()} data={{ ...vehicle, id: index + 1 }} />
     ))
   }
   return (

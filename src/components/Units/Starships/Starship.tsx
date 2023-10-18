@@ -1,22 +1,17 @@
-import { useSearchParams } from 'react-router-dom'
 import { TStarship } from '@Types/units'
 import Stats from '@Components/Info/Stats'
 import ListItem from '@Components/List/ListItem'
 import Heading from '@Components/typography/Heading'
+import { useModal } from '@/hooks/useModal'
 
-const Starship = ({ starshipData }: { starshipData: TStarship }) => {
-  const [, setSearchParams] = useSearchParams()
-
-  const { name, id } = starshipData || {}
-
-  const showFullVehicleData = () => {
-    setSearchParams(`starship=${id}`)
-  }
+const Starship = ({ data }: { data: TStarship }) => {
+  const { name, id } = data || {}
+  const { showFullData } = useModal()
 
   return (
-    <ListItem onClick={showFullVehicleData}>
+    <ListItem onClick={() => showFullData('starship', id)}>
       <Heading semantic='h2' text={`${name}`} />
-      <Stats type='starship' starship={starshipData} />
+      <Stats type='starship' starship={data} />
     </ListItem>
   )
 }

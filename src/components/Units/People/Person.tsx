@@ -4,21 +4,16 @@ import ListItem from '@Components/List/ListItem'
 import Stats from '@Components/Info/Stats'
 import Apparition from '@Components/Info/Apparition'
 import { Fragment } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useModal } from '@/hooks/useModal'
 
-const Person = ({ personData }: { personData: IPerson }) => {
+const Person = ({ data }: { data: IPerson }) => {
   const { id, name, height, mass, birth_year, gender, eye_color, hair_color } =
-    personData
-
-  const [, setSearchParams] = useSearchParams()
-
-  const showFullPersonData = () => {
-    setSearchParams(`person=${id}`)
-  }
+    data
+  const { showFullData } = useModal()
 
   return (
     <Fragment>
-      <ListItem onClick={showFullPersonData}>
+      <ListItem onClick={() => showFullData('person', id)}>
         <Heading semantic='h2' text={name} />
         <Stats type='person' person={{ height, mass, birth_year }} />
         <Apparition {...{ gender, eye_color, hair_color }} />

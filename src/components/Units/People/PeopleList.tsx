@@ -5,7 +5,7 @@ import Heading from '@Components/typography/Heading'
 import { useFetch } from '@Hooks/useFetch'
 import usePagination from '@Hooks/usePagination'
 import { IPerson, TInfiniteQuery } from '@/types/units'
-import { Fragment, memo } from 'react';
+import { Fragment, memo } from 'react'
 import Person from './Person'
 
 const PeopleList = memo(() => {
@@ -31,10 +31,7 @@ const PeopleList = memo(() => {
   const renderPeople = () => {
     const currentPageData = pages[page - 1] || { results: [] }
     return currentPageData.results.map((person, index) => (
-      <Person
-        key={crypto.randomUUID()}
-        personData={{ ...person, id: index + 1 }}
-      />
+      <Person key={crypto.randomUUID()} data={{ ...person, id: index + 1 }} />
     ))
   }
 
