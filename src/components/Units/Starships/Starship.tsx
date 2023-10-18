@@ -4,10 +4,10 @@ import Stats from '@Components/Info/Stats'
 import ListItem from '@Components/List/ListItem'
 import Heading from '@Components/typography/Heading'
 
-const Starship = ({ starshipData }: { starshipData: TStarship }) => {
+const Starship = ({ data }: { data: TStarship }) => {
   const [, setSearchParams] = useSearchParams()
 
-  const { name, id } = starshipData || {}
+  const { name, id } = data || {}
 
   const showFullVehicleData = () => {
     setSearchParams(`starship=${id}`)
@@ -16,7 +16,7 @@ const Starship = ({ starshipData }: { starshipData: TStarship }) => {
   return (
     <ListItem onClick={showFullVehicleData}>
       <Heading semantic='h2' text={`${name}`} />
-      <Stats type='starship' starship={starshipData} />
+      <Stats type='starship' starship={data} />
     </ListItem>
   )
 }

@@ -6,9 +6,9 @@ import Apparition from '@Components/Info/Apparition'
 import { Fragment } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
-const Person = ({ personData }: { personData: IPerson }) => {
+const Person = ({ data }: { data: IPerson }) => {
   const { id, name, height, mass, birth_year, gender, eye_color, hair_color } =
-    personData
+    data
 
   const [, setSearchParams] = useSearchParams()
 

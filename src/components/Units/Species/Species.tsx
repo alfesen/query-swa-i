@@ -4,8 +4,8 @@ import ListItem from '@Components/List/ListItem'
 import Heading from '@Components/typography/Heading'
 import Stats from '@Components/Info/Stats'
 
-const Species = ({ speciesData }: { speciesData: TSpecies }) => {
-  const { id, name, classification } = speciesData || {}
+const Species = ({ data }: { data: TSpecies }) => {
+  const { id, name, classification } = data || {}
 
   const [, setSearchParams] = useSearchParams()
 
@@ -16,7 +16,7 @@ const Species = ({ speciesData }: { speciesData: TSpecies }) => {
   return (
     <ListItem onClick={showFullSpeciesData}>
       <Heading semantic='h2' text={`${name} - ${classification}`} />
-      <Stats type='species' species={{ ...speciesData }} />
+      <Stats type='species' species={{ ...data }} />
     </ListItem>
   )
 }

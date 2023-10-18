@@ -4,10 +4,10 @@ import Stats from '@Components/Info/Stats'
 import ListItem from '@Components/List/ListItem'
 import Heading from '@Components/typography/Heading'
 
-const Vehicle = ({ vehicleData }: { vehicleData: TVehicle }) => {
+const Vehicle = ({ data }: { data: TVehicle }) => {
   const [, setSearchParams] = useSearchParams()
 
-  const { name, vehicle_class, id } = vehicleData || {}
+  const { name, vehicle_class, id } = data || {}
 
   const showFullVehicleData = () => {
     setSearchParams(`vehicle=${id}`)
@@ -16,7 +16,7 @@ const Vehicle = ({ vehicleData }: { vehicleData: TVehicle }) => {
   return (
     <ListItem onClick={showFullVehicleData}>
       <Heading semantic='h2' text={`${name} - ${vehicle_class}`} />
-      <Stats type='vehicle' vehicle={vehicleData} />
+      <Stats type='vehicle' vehicle={data} />
     </ListItem>
   )
 }

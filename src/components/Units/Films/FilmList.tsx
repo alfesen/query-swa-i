@@ -19,7 +19,7 @@ const PeopleList = memo(() => {
 
   const renderFilms = () => {
     return pages[0].results.map(film => (
-      <Film key={crypto.randomUUID()} filmData={{ ...film }} />
+      <Film key={crypto.randomUUID()} data={{ ...film }} />
     ))
   }
 

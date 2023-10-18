@@ -4,7 +4,7 @@ import ListItem from '@Components/List/ListItem'
 import { useSearchParams } from 'react-router-dom'
 import Stats from '@Components/Info/Stats'
 
-const Planet = ({ planetData }: { planetData: TPlanet }) => {
+const Planet = ({ data }: { data: TPlanet }) => {
   const {
     id,
     name,
@@ -16,7 +16,7 @@ const Planet = ({ planetData }: { planetData: TPlanet }) => {
     population,
     surface_water,
     terrain,
-  } = planetData
+  } = data
 
   const [, setSearchParams] = useSearchParams()
 

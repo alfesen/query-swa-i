@@ -4,8 +4,8 @@ import ListItem from '@Components/List/ListItem'
 import Stats from '@Components/Info/Stats'
 import { useSearchParams } from 'react-router-dom'
 
-const Film = ({ filmData }: { filmData: TFilm }) => {
-  const { title, episode_id, director, producer, release_date } = filmData
+const Film = ({ data }: { data: TFilm }) => {
+  const { title, episode_id, director, producer, release_date } = data
 
   const [, setSearchParams] = useSearchParams()
 
