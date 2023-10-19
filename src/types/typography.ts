@@ -50,6 +50,8 @@ export type TApparition = Pick<IPerson, 'eye_color' | 'hair_color'> & {
   gender?: IPerson['gender']
 }
 
+export type TLink = { to: string; text: string }
+
 export type TLinkGroupItem = {
   name: string
   paramName: string

@@ -35,7 +35,6 @@ const LinkGroupItem = ({ name, paramName, text, ids }: TLinkGroupItem) => {
         <Link
           key={crypto.randomUUID()}
           to={buildParamString(id)}
-          replace
           text={`${text} ${id}`}
         />
       ))}
