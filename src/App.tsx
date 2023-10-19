@@ -1,14 +1,15 @@
 import { Global, css } from '@emotion/react'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { Fragment } from 'react'
+import { Fragment, lazy, Suspense } from 'react'
 import MainLayout from '@Layout/MainLayout'
-import People from '@Pages/People'
-import Species from '@Pages/Species'
-import Planets from '@Pages/Planets'
-import Vehicles from '@Pages/Vehicles'
-import Starships from '@Pages/Starships'
-import Films from '@Pages/Films'
-import Search from './pages/Search'
+import LoadingSpinner from './components/UI/LoadingSpinner'
+const People = lazy(() => import('@Pages/People'))
+const Species = lazy(() => import('@Pages/Species'))
+const Planets = lazy(() => import('@Pages/Planets'))
+const Vehicles = lazy(() => import('@Pages/Vehicles'))
+const Starships = lazy(() => import('@Pages/Starships'))
+const Films = lazy(() => import('@Pages/Films'))
+const Search = lazy(() => import('./pages/Search'))
 
 const globalStyles = css({
   '*, *::after, *::before': {
@@ -54,7 +55,9 @@ const App = () => {
   return (
     <Fragment>
       <Global styles={globalStyles} />
-      <RouterProvider router={routes} />
+      <Suspense fallback={<LoadingSpinner color='#333' />}>
+        <RouterProvider router={routes} />
+      </Suspense>
     </Fragment>
   )
 }
