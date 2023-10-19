@@ -1,5 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { css } from '@emotion/react'
+import { TLink } from '@/types/typography'
 
 const linkStyle = css({
   fontSize: '1.6rem',
@@ -13,7 +14,7 @@ const linkStyle = css({
   },
 })
 
-const Link = ({ to, text }: { to: string; text: string }) => {
+const Link = ({ to, text }: TLink) => {
   return (
     <RouterLink css={linkStyle} to={to}>
       {text}

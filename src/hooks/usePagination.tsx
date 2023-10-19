@@ -1,16 +1,7 @@
+import { FetchNextPageResult } from '@/types/helpers'
 import { useState } from 'react'
-import { InfiniteQueryObserverResult } from 'react-query'
 
-const usePagination = <T,>(
-  fetchNextPage: () => Promise<
-    InfiniteQueryObserverResult<
-      {
-        results: T[]
-      },
-      unknown
-    >
-  >
-) => {
+const usePagination = <T,>(fetchNextPage: FetchNextPageResult<T>) => {
   const [page, setPage] = useState<number>(1)
 
   const nextPageHandler = async () => {

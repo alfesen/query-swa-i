@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios'
 import { HTMLProps, ReactNode } from 'react'
+import { EmotionJSX } from 'node_modules/@emotion/react/types/jsx-namespace'
 
 export type TSpinner = {
   color: string
@@ -26,3 +27,9 @@ export type TNavLinks = {
 }
 
 export type TRocketButton = HTMLProps<HTMLButtonElement> & { active: boolean }
+
+export type TSearchResultMap = {
+  [key: string]: ({ data }: { data: unknown }) => EmotionJSX.Element
+}
+
+export type TSearchResultItem = { [key: string]: unknown } & { url: string }

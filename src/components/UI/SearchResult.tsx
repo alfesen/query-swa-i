@@ -7,10 +7,10 @@ import Planet from '../Units/Planets/Planet'
 import Starship from '../Units/Starships/Starship'
 import Vehicle from '../Units/Vehicles/Vehicle'
 import Film from '../Units/Films/Film'
-import { EmotionJSX } from 'node_modules/@emotion/react/types/jsx-namespace'
 import useUnitId from '@/hooks/useUnitId'
 import useSearch from '@/hooks/useSearch'
 import { AxiosError } from 'axios'
+import { TSearchResultItem, TSearchResultMap } from '@/types/ui'
 
 const SearchResult = () => {
   const { separateId } = useUnitId()
@@ -25,9 +25,7 @@ const SearchResult = () => {
     starships: Starship,
     vehicles: Vehicle,
     films: Film,
-  } as {
-    [key: string]: ({ data }: { data: unknown }) => EmotionJSX.Element
-  }
+  } as TSearchResultMap
 
   const Component = map[category] ?? (() => null)
 
@@ -39,7 +37,7 @@ const SearchResult = () => {
       )}
       {!isLoading && data && searchTerm !== '' && (
         <List>
-          {data.map((item: { [key: string]: unknown } & { url: string }) => {
+          {data.map((item: TSearchResultItem) => {
             return (
               <Component
                 key={crypto.randomUUID()}
