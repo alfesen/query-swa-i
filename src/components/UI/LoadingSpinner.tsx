@@ -11,8 +11,9 @@ const spinnerBackdropStyles = css(overlayBase, {
   userSelect: 'none',
 })
 
+const SpinnerBackdrop = styled.div(spinnerBackdropStyles)
+
 const LoadingSpinner = ({ color }: TSpinner) => {
-  const SpinnerBackdrop = styled.div(spinnerBackdropStyles)
   const content = (
     <SpinnerBackdrop>
       <DotLoader color={color} />

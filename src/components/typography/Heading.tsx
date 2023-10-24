@@ -12,11 +12,12 @@ const h2Styles = css({ fontSize: '3rem', marginBottom })
 const h3Styles = css({ fontSize: '2.6rem', marginBottom })
 const h4Styles = css({ fontSize: '2rem', marginBottom })
 
+const H1 = styled.h1(h1Styles)
+const H2 = styled.h2(h2Styles)
+const H3 = styled.h3(h3Styles)
+const H4 = styled.h4(h4Styles)
+
 const Heading = ({ semantic, text }: THeading) => {
-  const H1 = styled.h1(h1Styles)
-  const H2 = styled.h2(h2Styles)
-  const H3 = styled.h3(h3Styles)
-  const H4 = styled.h4(h4Styles)
 
   if (semantic === 'h1') {
     return <H1>{text}</H1>

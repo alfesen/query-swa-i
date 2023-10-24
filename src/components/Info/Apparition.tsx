@@ -20,16 +20,16 @@ const apparitionStyles = css({
   },
 })
 
+const ApparitionComponent = styled.div(apparitionStyles)
+
 const Apparition = ({
   gender,
   eye_color,
   hair_color,
   skin_color,
 }: TApparition) => {
-  const Apparition = styled.div(apparitionStyles)
-
   return (
-    <Apparition>
+    <ApparitionComponent>
       {gender && (
         <StatItem stats={{ name: 'Gender', value: gender, spaces: true }} />
       )}
@@ -38,7 +38,7 @@ const Apparition = ({
       {skin_color && (
         <StatItem stats={{ name: 'Skin', value: skin_color }} block />
       )}
-    </Apparition>
+    </ApparitionComponent>
   )
 }
 

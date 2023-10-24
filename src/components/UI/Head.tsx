@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 const Head = ({ title }: { title: string }) => {
   return (
     <Helmet>
-      <meta charSet='utf-8' />
       <title>{title} - QuerySWAPI</title>
       <link
         rel='canonical'
