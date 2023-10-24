@@ -29,15 +29,16 @@ const modalStyles = css({
   animation: `${slideUp} .6s ease-out`,
 })
 
+const ModalContainer = styled.div(modalContainerStyles)
+const ModalBackdrop = styled.div(backdropStyles)
+const ModalComponent = styled.div(modalStyles)
+
 const Modal = ({ children, onClose }: TModal) => {
-  const ModalContainer = styled.div(modalContainerStyles)
-  const ModalBackdrop = styled.div(backdropStyles)
-  const Modal = styled.div(modalStyles)
   return (
     <Fragment>
       <ModalBackdrop onClick={onClose} />
       <ModalContainer>
-        <Modal>{children}</Modal>
+        <ModalComponent>{children}</ModalComponent>
       </ModalContainer>
     </Fragment>
   )

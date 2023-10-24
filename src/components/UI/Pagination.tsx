@@ -6,7 +6,7 @@ import { flexCenter } from '@/css/mixins'
 
 const ButtonContainerStyles = css(flexCenter, {
   gap: '2em',
-  marginTop: '2.5em'
+  marginTop: '2.5em',
 })
 
 const ButtonStyles = css({
@@ -20,15 +20,15 @@ const ButtonStyles = css({
   },
 })
 
+const ButtonContainer = styled.div(ButtonContainerStyles)
+const Button = styled.button(ButtonStyles)
+
 const Pagination = ({
   toNextPage,
   toPreviousPage,
   value,
   isNextPage,
 }: TPagination) => {
-  const ButtonContainer = styled.div(ButtonContainerStyles)
-  const Button = styled.button(ButtonStyles)
-
   return (
     <ButtonContainer>
       {value > 1 && <Button onClick={toPreviousPage}>&larr;</Button>}
