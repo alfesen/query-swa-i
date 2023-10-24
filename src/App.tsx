@@ -25,6 +25,7 @@ const globalStyles = css({
     '.overlay': {
       zIndex: '200',
     },
+    overflowX: 'hidden'
   },
   'h1, h2, h3, h4': {
     fontWeight: 400,
